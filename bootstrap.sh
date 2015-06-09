@@ -10,7 +10,11 @@ apt-get -y install \
   mysql-server \
   nginx \
   php5-cli \
+  php5-curl \
   php5-fpm \
+  php5-gd \
+  php5-mcrypt \
+  php5-mysql \
   php5-redis \
   php5-xdebug \
   redis-server \
@@ -62,6 +66,9 @@ innodb_file_per_table' >> /etc/mysql/my.cnf
 
 sed -i "48i\\
 bind-address            = 192.168.50.101" /etc/mysql/my.cnf
+
+ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/fpm/conf.d/20-mcrypt.ini
+ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
 
 service nginx restart
 service php5-fpm restart
