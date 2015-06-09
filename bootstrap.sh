@@ -3,6 +3,8 @@
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
 
+apt-get -y update
+
 apt-get -y install \
   git \
   htop \
@@ -27,6 +29,13 @@ echo 'server {
   root /var/www/html/$project;
   location / {
     index index.html index.php;
+    try_files $uri $uri/ @handler;
+  }
+  location @handler {
+    rewrite / /index.php;
+  }
+  location ~ .php/ {
+    rewrite ^(.*.php)/ $1 last;
   }
   location ~ .php$ {
     expires        off;
