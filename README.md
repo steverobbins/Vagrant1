@@ -15,7 +15,7 @@ etc.  No additional configurations or service restarts needed.
 
 * Ubuntu 14.04.2
 * Nginx 1.4.6
-* MySQL 5.5.41
+* MySQL 5.6.19
 * PHP 5.5.9
   * ionCube Loader 4.7.5
   * Xdebug 2.2.3

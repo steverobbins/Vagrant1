@@ -8,8 +8,9 @@ apt-get -y update
 apt-get -y install \
   git \
   htop \
-  mysql-client \
-  mysql-server \
+  mysql-client-core-5.6 \
+  mysql-client-5.6 \
+  mysql-server-5.6 \
   nginx \
   php5-cli \
   php5-curl \
